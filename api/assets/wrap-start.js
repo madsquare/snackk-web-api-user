@@ -1,9 +1,9 @@
 (function (root, factory) {
   if (typeof define === 'function') {
-    define(['server'], factory);
+    define(['server','lodash'], factory);
   } else if (typeof exports === 'object') {
     module.exports = factory();
   } else {
-    root.request = factory();
+    root.user = factory();
   }
 }(this, function () {

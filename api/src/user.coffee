@@ -42,7 +42,7 @@ define [
                             'user': user
                         , options)
                     'type': 'POST'
-                , _callbackObj)
+                , callback)
 
 
         ###
@@ -58,7 +58,7 @@ define [
                     'type': 'POST'
                     'data':
                         'token': token
-                , _callbackObj)
+                , callback)
 
 
         ###
@@ -72,7 +72,7 @@ define [
             options = {} if not options
             server.request server.TAG.user.user, _.assign(
                     'data': options
-                , _callbackObj)
+                , callback)
 
 
         ###
@@ -82,7 +82,7 @@ define [
         ###
         loadDefaultPicture: (callback) ->
             tag = server.TAG.user.profileDefault.replace ':us_no', _user.us_no
-            server.request tag, _callbackObj
+            server.request tag, callback
 
 
         ###
@@ -105,7 +105,7 @@ define [
                 'data': _.assign(
                         'user': user
                     , options)
-                , _callbackObj)
+                , callback)
 
 
         ###
@@ -120,7 +120,7 @@ define [
             server.request tag, _.assign(
                     'fileInput': fileInput
                     'dataType': 'iframe json'
-                , _callbackObj)
+                , callback)
 
 
         ###
@@ -149,7 +149,7 @@ define [
             server.request tag, _.aasign(
                 'type': 'PUT'
                 'data': _.assign({'user': userObj}, nonce, options)
-                , _callbackObj)
+                , callback)
 
 
         ###
@@ -166,7 +166,7 @@ define [
 
             server.request tag, _.assign(
                     'type': 'DELETE'
-                , _callbackObj)
+                , callback)
 
 
         ###
@@ -179,7 +179,7 @@ define [
             tag = server.TAG.user.provider.replace(':us_no', _user.us_no).replace ':provider', sns
             server.request tag, _.assign(
                     'type': 'DELETE'
-                , _callbackObj)
+                , callback)
 
 
         ###
@@ -191,7 +191,7 @@ define [
             tag = server.TAG.user.profile.replace ':us_no',_user.us_no
             server.request tag, _.assign(
                     'type': 'DELETE'
-                , _callbackObj)
+                , callback)
 
 
         ###
@@ -201,7 +201,7 @@ define [
         ###
         sendEmail: (callback) ->
             tag = server.TAG.user.emailPost
-            server.request tag, _callbackObj
+            server.request tag, callback
 
 
         ###
@@ -237,3 +237,5 @@ define [
                 complete: =>
                     xhr = null
 
+
+    return User
