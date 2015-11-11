@@ -10,15 +10,6 @@ define [
         INVALID: 'error_invalid'
         UN_KNOWN: 'error_unknown'
 
-    _callbackObj = 
-        success: (res) =>
-            callback.success(res) if callback && callback.success
-        error: (er) =>
-            callback.error(er) if callback && callback.error
-        complete: () ->
-            callback.complete() if callback && callback.complete
-
-
     User = 
         ###
          * set user
@@ -80,7 +71,7 @@ define [
          * @param  {Function} callback 
          * @return {ajax}           
         ###
-        loadDefaultPicture: (callback) ->
+        loadDefaultProfile: (callback) ->
             tag = server.TAG.user.profileDefault.replace ':us_no', _user.us_no
             server.request tag, callback
 
@@ -187,7 +178,7 @@ define [
          * @param  {Function} callback 
          * @return {ajax}            
         ###
-        deletePicture: (callback) ->
+        deleteProfile: (callback) ->
             tag = server.TAG.user.profile.replace ':us_no',_user.us_no
             server.request tag, _.assign(
                     'type': 'DELETE'
