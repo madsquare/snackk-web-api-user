@@ -1,6 +1,6 @@
 (function (root, factory) {
   if (typeof define === 'function') {
-    define(factory);
+    define(['server'], factory);
   } else if (typeof exports === 'object') {
     module.exports = factory();
   } else {

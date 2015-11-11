@@ -64,12 +64,12 @@ module.exports = (grunt) ->
                         dead_code: true
             api:
                 options:
-                    mainConfigFile: 'api/assets/src/user-config.js'
                     baseUrl: 'api/assets/src'
                     out: 'dist/snackk-web-api-user.min.js'
                     onBuildRead: (moduleName, path, contents) ->
                         return contents.replace /\/assets/g, '/dist'
                     include: ['../almond', 'user']
+                    exclude: ['server']
                     wrap: {
                         startFile: 'api/assets/wrap-start.js'
                         endFile: 'api/assets/wrap-end.js'
