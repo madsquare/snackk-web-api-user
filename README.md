@@ -1,5 +1,4 @@
 # snackk-web-api-user
-회원가입, 정보수정(이미지 업로드 포함), 회원탈퇴
 
 [request modules]
 snackk-web-api-request
