@@ -4,8 +4,7 @@ request modules:
 * [snackk-web-api-request](https://github.com/madsquare/snackk-web-api-request)
 
 
-### 
-포함기능
+## 포함기능
 
 user:
 * registUser
@@ -22,8 +21,21 @@ profile:
 * deleteProfile
 * loadDefaultProfile
 
+password:
+* updatePassword
+
 validate:
 * validateEmail
 
 verify:
 * sendVerifyEmail
+
+
+
+
+### validate email ERROR CODE
+```
+DUPLICATED: 'error_duplicated'
+INVALID: 'error_invalid'
+UN_KNOWN: 'error_unknown'
+```
