@@ -1,11 +1,11 @@
 # snackk-web-api-user
 
-request modules:
+## require
 * [snackk-web-api-request](https://github.com/madsquare/snackk-web-api-request)
+* lodash
 
 
-## 포함기능
-
+## functions
 user:
 * registUser
 * loadMe
