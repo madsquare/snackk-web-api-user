@@ -1,26 +1,29 @@
 # snackk-web-api-user
 
-[request modules]
-snackk-web-api-request
+request modules:
+* [snackk-web-api-request](https://github.com/madsquare/snackk-web-api-request)
 
+
+### 
 포함기능
 
-- user:
-회원가입
-회원탈퇴
-정보수정
+user:
+* registUser
+* loadMe
+* updateUser
+* deleteUser
 
-- provider:
-추가
-삭제
+provider:
+* addProvider
+* deleteProvider
 
-- profile:
-디폴트 로드
-삭제
-업데이트
+profile:
+* updateProfile
+* deleteProfile
+* loadDefaultProfile
 
-- validate:
-email
+validate:
+* validateEmail
 
-- 인증메일 발송
-
+verify:
+* sendVerifyEmail
