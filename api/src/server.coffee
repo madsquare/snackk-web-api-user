@@ -1,0 +1,6 @@
+define [
+], (
+) ->
+    server = 
+        init: ->
+            
