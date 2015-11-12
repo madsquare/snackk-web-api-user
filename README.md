@@ -45,8 +45,8 @@ UN_KNOWN: 'error_unknown'
 
 ## example
 ```
-userCtr.init server
-userCtr.loadMe {
+userModule.init server
+userModule.loadMe {
   'success': (res) =>
     debugger
   'error': (er) =>
