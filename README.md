@@ -3,6 +3,10 @@
 ## require
 * lodash
 
+## not amd
+```
+window.snackkModule.user
+```
 
 ## functions
 user:
@@ -49,3 +53,5 @@ userCtr.loadMe {
     debugger
 }
 ```
+
+
