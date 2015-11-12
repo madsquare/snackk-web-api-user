@@ -1,7 +1,5 @@
 define [
-    'server'
 ], (
-    server
 ) ->
     _user = null
 
@@ -11,11 +9,20 @@ define [
         UN_KNOWN: 'error_unknown'
 
     User = 
+        server: null
+
+        init: (server) ->
+            @server = server
+
+
         ###
          * set user
          * @param {User} user  :user object
         ###
         setUser: (user) ->
+            if not @server
+                console.error 'user-module] not initialized server.'
+                return
             _user = user
 
 
@@ -27,8 +34,11 @@ define [
          * @return {ajax}
         ###
         registUser: (user, callback, options) ->
+            if not @server
+                console.error 'user-module] not initialized server.'
+                return
             options = {} if not options
-            server.request server.TAG.user.user, _.assign(
+            @server.request @server.TAG.user.user, _.assign(
                     'data': _.assign(
                             'user': user
                         , options)
@@ -43,9 +53,12 @@ define [
          * @param {Function} callback 
         ###
         addProvider: (sns, token, callback) ->
-            tag = server.TAG.user.provider.replace(':us_no',_user.us_no).replace ':provider', sns
+            if not @server
+                console.error 'user-module] not initialized server.'
+                return
+            tag = @server.TAG.user.provider.replace(':us_no',_user.us_no).replace ':provider', sns
 
-            server.request tag, _.aasign(
+            @server.request tag, _.aasign(
                     'type': 'POST'
                     'data':
                         'token': token
@@ -60,8 +73,11 @@ define [
          * @return {ajax}
         ###
         loadMe: (callback, options) ->
+            if not @server
+                console.error 'user-module] not initialized server.'
+                return
             options = {} if not options
-            server.request server.TAG.user.user, _.assign(
+            @server.request @server.TAG.user.user, _.assign(
                     'data': options
                 , callback)
 
@@ -72,8 +88,11 @@ define [
          * @return {ajax}           
         ###
         loadDefaultProfile: (callback) ->
-            tag = server.TAG.user.profileDefault.replace ':us_no', _user.us_no
-            server.request tag, callback
+            if not @server
+                console.error 'user-module] not initialized server.'
+                return
+            tag = @server.TAG.user.profileDefault.replace ':us_no', _user.us_no
+            @server.request tag, callback
 
 
         ###
@@ -85,13 +104,16 @@ define [
          * @return {ajax}            
         ###
         updateUser: (user, callback, options) ->
+            if not @server
+                console.error 'user-module] not initialized server.'
+                return
             if not _user
                 console.log 'updateUser] user object is empty.'
                 return
 
             options = {} if not options
-            tag = server.TAG.user.aUser.replace ':us_no', _user.us_no
-            server.request tag, _.assign(
+            tag = @server.TAG.user.aUser.replace ':us_no', _user.us_no
+            @server.request tag, _.assign(
                 'type': 'PUT'
                 'data': _.assign(
                         'user': user
@@ -106,9 +128,12 @@ define [
          * @return {[type]}             [description]
         ###
         updateProfile: (fileInput, callback) ->
-            tag = server.TAG.user.profile.replace ':us_no', _user.us_no
+            if not @server
+                console.error 'user-module] not initialized server.'
+                return
+            tag = @server.TAG.user.profile.replace ':us_no', _user.us_no
 
-            server.request tag, _.assign(
+            @server.request tag, _.assign(
                     'fileInput': fileInput
                     'dataType': 'iframe json'
                 , callback)
@@ -123,6 +148,9 @@ define [
          * @return {ajax}
         ###
         updatePassword: (oldPasswd, newPasswd, callback, options) ->
+            if not @server
+                console.error 'user-module] not initialized server.'
+                return
             if oldPasswd
                 oldPasswdObj = { 'passwd': oldPasswd }
                 nonce = 'nonce': { 'isPasswdEdit': 1 }
@@ -136,8 +164,8 @@ define [
                 'new_passwd': newPassWd
                 , oldPasswdObj)
 
-            tag = server.TAG.user.aUser.replace ':us_no', _user.us_no
-            server.request tag, _.aasign(
+            tag = @server.TAG.user.aUser.replace ':us_no', _user.us_no
+            @server.request tag, _.aasign(
                 'type': 'PUT'
                 'data': _.assign({'user': userObj}, nonce, options)
                 , callback)
@@ -149,13 +177,16 @@ define [
          * @return {ajax}            
         ###
         deleteUser: (callback) ->
+            if not @server
+                console.error 'user-module] not initialized server.'
+                return
             if not _user
                 console.log 'deleteUser] user object is empty.'
                 return
 
-            tag = server.TAG.user.aUser.replace ':us_no', _user.us_no
+            tag = @server.TAG.user.aUser.replace ':us_no', _user.us_no
 
-            server.request tag, _.assign(
+            @server.request tag, _.assign(
                     'type': 'DELETE'
                 , callback)
 
@@ -167,8 +198,11 @@ define [
          * @return {ajax}            
         ###
         deleteProvider: (sns, callback) ->
-            tag = server.TAG.user.provider.replace(':us_no', _user.us_no).replace ':provider', sns
-            server.request tag, _.assign(
+            if not @server
+                console.error 'user-module] not initialized server.'
+                return
+            tag = @server.TAG.user.provider.replace(':us_no', _user.us_no).replace ':provider', sns
+            @server.request tag, _.assign(
                     'type': 'DELETE'
                 , callback)
 
@@ -179,8 +213,11 @@ define [
          * @return {ajax}            
         ###
         deleteProfile: (callback) ->
-            tag = server.TAG.user.profile.replace ':us_no',_user.us_no
-            server.request tag, _.assign(
+            if not @server
+                console.error 'user-module] not initialized server.'
+                return
+            tag = @server.TAG.user.profile.replace ':us_no',_user.us_no
+            @server.request tag, _.assign(
                     'type': 'DELETE'
                 , callback)
 
@@ -191,8 +228,11 @@ define [
          * @return {ajax}            
         ###
         sendEmail: (callback) ->
-            tag = server.TAG.user.emailPost
-            server.request tag, callback
+            if not @server
+                console.error 'user-module] not initialized server.'
+                return
+            tag = @server.TAG.user.emailPost
+            @server.request tag, callback
 
 
         ###
@@ -202,6 +242,9 @@ define [
          * @return {ajax}            
         ###
         validateEmail: (email, callback) ->
+            if not @server
+                console.error 'user-module] not initialized server.'
+                return
             # null check.
             if not callback or not email
                 console.error 'validateEmail] email or callback is not defined.'
