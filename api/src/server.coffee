@@ -1,6 +1,0 @@
-define [
-], (
-) ->
-    server = 
-        init: ->
-            

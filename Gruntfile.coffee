@@ -3,8 +3,6 @@ module.exports = (grunt) ->
     require('matchdep').filterDev('grunt-*').forEach(grunt.loadNpmTasks);
 
     # load package config
-
-
     taskConfig = 
         watch:
             coffee:
@@ -70,7 +68,7 @@ module.exports = (grunt) ->
                     onBuildRead: (moduleName, path, contents) ->
                         return contents.replace /\/assets/g, '/dist'
                     include: ['../almond', 'user']
-                    exclude: ['server', 'lodash']
+                    exclude: ['lodash']
                     wrap: {
                         startFile: 'api/assets/wrap-start.js'
                         endFile: 'api/assets/wrap-end.js'

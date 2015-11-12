@@ -1,9 +1,13 @@
 (function (root, factory) {
   if (typeof define === 'function') {
-    define(['server','lodash'], factory);
+    define(['lodash'], factory);
   } else if (typeof exports === 'object') {
     module.exports = factory();
   } else {
-    root.user = factory();
+    if (typeof root['snackkModule'] === 'undefined') {
+        root['snackkModule'] = {
+            'user': factory()
+        };
+    }
   }
 }(this, function () {
