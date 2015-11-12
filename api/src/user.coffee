@@ -1,5 +1,7 @@
 define [
+    'lodash'
 ], (
+    _
 ) ->
     _user = null
 
