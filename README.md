@@ -39,3 +39,14 @@ DUPLICATED: 'error_duplicated'
 INVALID: 'error_invalid'
 UN_KNOWN: 'error_unknown'
 ```
+
+## example
+```
+userCtr.init server
+userCtr.loadMe {
+  'success': (res) =>
+    debugger
+  'error': (er) =>
+    debugger
+}
+```
