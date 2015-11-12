@@ -38,7 +38,7 @@ define [
                 console.error 'user-module] not initialized server.'
                 return
             options = {} if not options
-            @server.request @server.TAG.user.user, _.assign(
+            @server.request @server.TAG.user.get, _.assign(
                     'data': _.assign(
                             'user': user
                         , options)
@@ -77,7 +77,7 @@ define [
                 console.error 'user-module] not initialized server.'
                 return
             options = {} if not options
-            @server.request @server.TAG.user.user, _.assign(
+            @server.request @server.TAG.user.get, _.assign(
                     'data': options
                 , callback)
 
@@ -112,7 +112,7 @@ define [
                 return
 
             options = {} if not options
-            tag = @server.TAG.user.aUser.replace ':us_no', _user.us_no
+            tag = @server.TAG.user.unit.replace ':us_no', _user.us_no
             @server.request tag, _.assign(
                 'type': 'PUT'
                 'data': _.assign(
@@ -164,7 +164,7 @@ define [
                 'new_passwd': newPassWd
                 , oldPasswdObj)
 
-            tag = @server.TAG.user.aUser.replace ':us_no', _user.us_no
+            tag = @server.TAG.user.unit.replace ':us_no', _user.us_no
             @server.request tag, _.aasign(
                 'type': 'PUT'
                 'data': _.assign({'user': userObj}, nonce, options)
@@ -184,7 +184,7 @@ define [
                 console.log 'deleteUser] user object is empty.'
                 return
 
-            tag = @server.TAG.user.aUser.replace ':us_no', _user.us_no
+            tag = @server.TAG.user.unit.replace ':us_no', _user.us_no
 
             @server.request tag, _.assign(
                     'type': 'DELETE'
