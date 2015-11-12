@@ -1,7 +1,6 @@
 # snackk-web-api-user
 
 ## require
-* [snackk-web-api-request](https://github.com/madsquare/snackk-web-api-request)
 * lodash
 
 
