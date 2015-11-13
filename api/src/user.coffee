@@ -35,7 +35,7 @@ define [
          * @param  {Object} options  
          * @return {ajax}
         ###
-        registUser: (user, callback, options) ->
+        registerUser: (user, callback, options) ->
             if not @server
                 console.error 'user-module] not initialized server.'
                 return
