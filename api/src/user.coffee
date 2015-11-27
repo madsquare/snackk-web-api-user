@@ -43,9 +43,7 @@ define [
 				return
 			options = {} if not options
 			@server.request @server.TAG.user.get, _.assign(
-						'data': _.assign(
-										'user': user
-								, options)
+						'data': _.assign('user': user, options)
 						'type': 'POST'
 				, callback)
 
@@ -62,7 +60,7 @@ define [
 				return
 			tag = @server.TAG.user.provider.replace(':us_no',_user.us_no).replace ':provider', sns
 
-			@server.request tag, _.aasign(
+			@server.request tag, _.assign(
 						'type': 'POST'
 						'data':
 								'token': token
