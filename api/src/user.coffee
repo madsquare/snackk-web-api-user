@@ -74,7 +74,7 @@ define [
      * @param  {Object}   options  
      * @return {ajax}
     ###
-    loadUser: (callback, options) ->
+    loadUser: (options, callback) ->
       if not @server
         console.error 'user-module] not initialized server.'
         return
