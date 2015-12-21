@@ -11,7 +11,7 @@ window.snackkModule.user
 ## functions
 user:
 * registerUser
-* loadMe
+* loadUser
 * updateUser
 * deleteUser
 
