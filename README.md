@@ -10,28 +10,28 @@ window.snackkModule.user
 
 ## functions
 user:
-* registUser
-* loadMe
-* updateUser
-* deleteUser
+* registerUser (user, callback, options)
+* loadUser (options, callback)
+* updateUser (user, callback, options)
+* deleteUser (callback)
 
 provider:
-* addProvider
-* deleteProvider
+* addProvider (sns, token, callback)
+* deleteProvider (sns, callback)
 
 profile:
-* updateProfile
-* deleteProfile
-* loadDefaultProfile
+* updateProfile (fileInput, callback)
+* deleteProfile (callback)
+* loadDefaultProfile (callback)
 
 password:
-* updatePassword
+* updatePassword (oldPasswd, newPasswd, callback, options)
 
 validate:
-* validateEmail
+* validateEmail (email, callback)
 
 verify:
-* sendVerifyEmail
+* sendEmail (callback)
 
 
 

@@ -255,6 +255,7 @@ define [
       # 유효성 검사.
       if not email.match(/^(([a-zA-Z]|[0-9])|([-]|[_]|[.]))+[@](([a-zA-Z0-9])|([-])){2,63}[.](([a-zA-Z0-9]){2,63})+$/gi)
         callback 'ERROR', _ERROR_CODE.INVALID
+        return
 
       # 중복 여부 검사.
       xhr && xhr.abort()
