@@ -33,6 +33,9 @@ validate:
 verify:
 * sendEmail (callback)
 
+managing:
+* setUser (User)
+* getUser
 
 
 

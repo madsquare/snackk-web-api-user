@@ -31,6 +31,14 @@ define [
 
 
     ###
+     * return user
+     * @return {User}
+    ###
+    getUser: ->
+      _user
+
+
+    ###
      * 회원가입
      * @param  {User}   user     : user object
      * @param  {Function} callback 
