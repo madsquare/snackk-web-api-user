@@ -175,7 +175,7 @@ define [
         , oldPasswdObj)
 
       tag = @server.TAG.user.unit.replace ':us_no', _user.us_no
-      @server.request tag, _.aasign(
+      @server.request tag, _.assign(
           'type': 'PUT'
           'data': _.assign({'user': userObj}, nonce, options)
         , callback)
