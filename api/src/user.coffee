@@ -171,7 +171,7 @@ define [
       options = {} if not options
 
       userObj = _.assign(
-        'new_passwd': newPassWd
+        'new_passwd': newPasswd
         , oldPasswdObj)
 
       tag = @server.TAG.user.unit.replace ':us_no', _user.us_no
