@@ -183,10 +183,11 @@ define [
 
     ###
      * 회원탈퇴.
+     * @param  {String} passwd [optional]
      * @param  {Function} callback
      * @return {ajax}            
     ###
-    deleteUser: (callback) ->
+    deleteUser: (passwd, callback) ->
       if not @server
         console.error 'user-module] not initialized server.'
         return
@@ -194,11 +195,13 @@ define [
         console.log 'deleteUser] user object is empty.'
         return
 
+      data = if passwd then { 'data': 'passwd': passwd } else {}
+
       tag = @server.TAG.user.unit.replace ':us_no', _user.us_no
 
       @server.request tag, _.assign(
           'type': 'DELETE'
-        , callback)
+        , callback, data)
 
 
     ###
